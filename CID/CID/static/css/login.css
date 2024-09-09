@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(108, 108, 108);
+    color: white;
+    margin-top: 35px;
+}
+
+body, button, img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    background-color: lightgrey;
+    color: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    max-width: 300px;
+}
+
+p {
+    text-align: center;
+}

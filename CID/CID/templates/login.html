@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport", content="width=device-width, initial-scale=1">
+        <title>CID Login Page</title>
+        {% load static %}
+        <link rel="stylesheet", href="{% static 'css/login.css' %}"
+    </head>
+    <body>
+        <h1>CID</h1>
+        <h2>Configuration Item Database</h2>
+        <img src="{% static 'img/CID_Temp_logo.png' %}", alt="logo">
+        <form method="post", autocomplete="off">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </body>
+    <footer>
+        <img src="{% static 'img/stslogo.jpg' %}", alt="SelectTech Logo">
+    </footer>
+</html>

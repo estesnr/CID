@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(108, 108, 108);
+    color: white;
+    margin-top: 35px;
+}
+
+body, footer {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    display: block;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+}
+
+table, th, td, tr{
+    border: 1px solid;
+    border-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+th, td, tr{
+    height: 55px;
+    width: 100px;
+}
