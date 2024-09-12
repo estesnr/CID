@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #002960;
+    color: white;
+    margin-top: 0;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightgrey;
+}
+
+table, th, td, tr{
+    border: 1px solid;
+    border-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+th, td, tr{
+    height: 55px;
+    width: 150px;
+}
+
+body, footer {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+img {
+    display: block;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.homepage_link {
+    max-width: 100px;
+    margin-left: 30px;
+    margin-top: 0;
+}

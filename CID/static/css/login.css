@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #002960;
+    box-sizing: border-box;
+    color: white;
+    margin-top: 10px;
+}
+
+.container, #logo-div {
+    height: 80vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#creds {
+    padding: 5%;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Bungee Tint", sans-serif;
+    font-size: 3em;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    font-family: "Bungee", sans-serif;
+}
+
+
+input[type="text"],
+input[type="password"],
+textarea {
+    background-color: lightgrey;
+    color: black;
+    display: block;
+    margin: 20px auto 30px auto;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 4px;
+    text-align: center;
+}
+
+img {
+    max-width: 100px;
+}
+
+#creds, #logo-div {
+    width: 49.5%;
+}
+
+p {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+}
+
+a:hover {
+    color:  white;
+}
+
+button {
+    display: block;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    color: black;
+    background-color: lightgrey;
+    border-radius: 7px;
+    margin: 0 auto 40px auto;
+    font-family: 'Bungee', sans-serif;
+}
+
+#logo-div {
+    background-image: url('../img/plane.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 60px;
+}
+
+hr {
+    border-color: red;
+    width: 70%;
+    margin: 0 auto;
+    height: 5px;
+    background-color: red;
+    box-shadow: inset 0 -1px rgb(135, 0, 0);
+}
+
+#login-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20%;
+}
+
+#login-foot img {
+    max-height: 90%;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport", content="width=device-width, initial-scale=1">
+        <title>Rocc Drawings</title>
+        {% load static %}
+        <link rel="stylesheet", href="{% static 'css/drwgs.css' %}">
+    </head>
+    <body>
+        <a href="{% url 'homepage' %}">
+            <img class='homepage_link' src="{% static 'img/CID_Temp_logo.png' %}"
+        </a>
+        <h1>Rocc Drawings</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Cage Code</th>
+                <th>Number</th>
+                <th>Rev</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <th>Jig Assy, ACU</th>
+                <th>7W030</th>
+                <th>1912-00001</th>
+                <th>-</th>
+                <th><a href="" onclick="return openPopUp('/media/1912-00001.pdf')">Preview</a> <a href="{% url 'download_file' '1912-00001.pdf' %}">Download</a></th>
+            </tr>
+            <tr>
+                <th>Label, Adhesive</th>
+                <th>7W030</th>
+                <th>1912-10022</th>
+                <th>-</th>
+                <th><a href="#" onclick="return openPopUp('/media/1912-10022.pdf')">Preview</a> <a href="{% url 'download_file' '1912-10022.pdf' %}">Download</a></th>
+            </tr>
+        </table>
+    </body>
+    <footer>
+        <img src="{% static 'img/stslogo.jpg' %}", alt="SelectTech Logo">
+        <p>Something Not Working? Report a Bug <a href='' onclick="openPopUp('/report_bug')">Here</a></p>
+        <script>
+            function openPopUp(url) {
+                window.open(url, 'popupWindow', 'width=${window.screen.width * 0.8},height=#{window.screen.height * 0.6},scollbars=yes,resizable=yes');
+                return false;
+            }
+        </script>
+    </footer>
+</html>

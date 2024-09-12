@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport", content="width=device-width, initial-scale=1">
+        <title>CID Login Page</title>
+        {% load static %}
+        <link rel="stylesheet", href="{% static 'css/login.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div id="creds">
+                <h1>CID</h1>
+                <h2>Configuration Item Database</h2>
+                <hr>
+                <form method="post", autocomplete="off">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">login</button>
+                </form>
+                <p>Need an Account? Request one <a href='' onclick="openPopUp('/request_account')">HERE</a></p>
+                <div id="login-foot">
+                    <img src="{% static 'img/stslogo.jpg' %}", alt="SelectTech Logo">
+                    <p>Copyright SelectTech Services Corp 2024</p>
+                    <img src="{% static 'img/CID_Temp_logo.jpg' %}"
+                </div>
+            </div>
+            </div>
+            <div id="logo-div">
+                <p></p>
+            </div>
+        
+    </body>
+    <footer>
+        <script>
+            function openPopUp(url) {
+                window.open(url, 'popupWindow', 'width=${window.screen.width * 0.8},height=#{window.screen.height * 0.6},scollbars=yes,resizable=yes');
+                return false;
+            }
+        </script>
+    </footer>
+</html>

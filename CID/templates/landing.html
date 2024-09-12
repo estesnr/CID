@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CID</title>
+        {% load static %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
+        <link rel="stylesheet", href="{% static 'css/landing.css' %}">
+    </head>
+    <body>
+        <h1>Welcome To CID</h1>
+        <div class="video-container">
+        <video width="640" height="360" autoplay muted>
+            <source src="{% static 'img/animated_logo.mp4' %}" type="video/mp4">
+            Your Browser Does not support the Video Tag
+        </video>
+        </div>
+    </body>
+    <footer>
+        <script>
+            setTimeout(function() {
+                window.location.href = "{% url 'login' %}";
+            },3000);
+        </script>
+    </footer>
+</html>

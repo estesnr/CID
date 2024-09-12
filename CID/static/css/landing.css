@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #002960;
+    box-sizing: border-box;
+    color: white;
+    margin-top: 40px;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Bungee Tint", sans-serif;
+}
+
+video {
+    max-width: 60%;
+    height: auto;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin: 0;
+}
