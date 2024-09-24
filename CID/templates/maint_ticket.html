@@ -4,24 +4,25 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
+        <link rel="stylesheet", href="{% static 'css/bug_report.css' %}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
-        <link rel="stylesheet", href="{% static 'css/account_request.css' %}">
         <link rel="icon" href="{% static 'img/CID_favicon.ico' %}" type="image/x-icon">
-        <title>Request Account</title>
+        <title>Submit Maintenance Ticket</title>
     </head>
     <body>
-    <div class="form_inputs">
-        <h1>Request Account</h1>
+        <h1>Submit Maintenance Ticket</h1>
         <hr>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Submit</button>
         </form>
-        <hr>
-    </div>
     </body>
+    <hr>
+    <footer></footer>
+        <img src="{% static 'img/stslogo.jpg' %}", class='logo', alt="SelectTech Logo">
+    </footer>
 </html>

@@ -5,10 +5,16 @@
         <meta name="viewport", content="width=device-width, initial-scale=1">
         {% load static %}
         <link rel="stylesheet", href="{% static 'css/bug_report.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+        <link rel="icon" href="{% static 'img/CID_favicon.ico' %}" type="image/x-icon">
         <title>Bug Report</title>
     </head>
     <body>
         <h1>Report a Bug</h1>
+        <hr>
         <img src="{% static 'img/hair_pull.png' %}">
         <form method="post">
             {% csrf_token %}
@@ -16,6 +22,7 @@
             <button type="submit">Submit</button>
         </form>
     </body>
+    <hr>
     <footer>
         <img src="{% static 'img/stslogo.jpg' %}", class='logo', alt="SelectTech Logo">
     </footer>

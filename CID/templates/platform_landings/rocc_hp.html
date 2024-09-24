@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/homepage.css' %}"
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+        <link rel="icon" href="{% static 'img/CID_favicon.ico' %}" type="image/x-icon">
+        <title>ROCC</title>
+    </head>
+    <header>
+        <h1>CID</h1>
+        <h2>ROCC Homepage</h2>
+        <div class="logo_block">
+            <img id="CID_LOGO" src="{% static 'img/CID_Temp_logo_notext.jpg' %}", alt="CID Logo">
+            <div id="links">
+            <a href="{% url 'custom_logout' %}">Logout</a>
+        </div>
+    </header>
+    <body>
+        <hr>
+        <div class="tables">
+            <table>
+                <th colspan="3">ROCC</th>
+                <tr>
+                    <td>Drawings</td>
+                    <td><a href="/drwgs/rocc_drwgs"><button class="maint_ticket">View</button></a></td>
+                    <td><a>DOWNLOAD</a></td>
+                </tr>
+                <tr>
+                    <td>Parts</td>
+                    <td><a href="/BOMS/rocc_boms"><button class="maint_ticket">View</button></a></td>
+                    <td><a>DOWNLOAD</a></td>
+                </tr>
+                <tr>
+                    <td>Config Items</td>
+                    <td><a><button class="maint_ticket">View</button></a></td>
+                    <td><a>DOWNLOAD</a></td>
+                </tr>
+                <tr>
+                    <td>Maintenance Records</td>
+                    <td><a href="javascript:void(0)" onclick="openPopUp('/maint?platform=ROCC')"><button class="maint_ticket">View</button></a></td>
+                    <td><a href="{% url 'maint_ticket' %}"><button class="maint_ticket">Submit Ticket</button></a></td>
+                </tr>
+                <tr>
+                    <td>TDPS</td>
+                    <td><a><button class="maint_ticket">View</button></a></td>
+                    <td><a>DOWNLOAD</a></td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+    </body>
+    <footer>
+        <img src="{% static 'img/stslogo.jpg' %}", alt="SelectTech Logo">
+        <p>Something Not Working? Report a Bug <a href='' onclick="openPopUp('/report_bug')">Here</a></p>
+        <script>
+            function openPopUp(url) {
+                window.open(url, 'popupWindow', 'width=${window.screen.width * 0.8},height=#{window.screen.height * 0.6},scollbars=yes,resizable=yes');
+                return false;
+            }
+        </script>
+    </footer>
+</html>

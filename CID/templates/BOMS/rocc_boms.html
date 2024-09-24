@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <head></head>
         <meta charset="utf-8">
         <meta name="viewport", content="width=device-width, initial-scale=1">
+        <title>Rocc BOMs</title>
         {% load static %}
         <link rel="stylesheet", href="{% static 'css/boms.css' %}">
-        <title>ROCC BOMS</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+        <link rel="icon" href="{% static 'img/CID_favicon.ico' %}" type="image/x-icon">
     </head>
+    <header>
+        <h1>CID</h1>
+        <h2>ROCC BOMS</h2>
+        <div class="logo_block">
+            <img id="CID_LOGO" src="{% static 'img/CID_Temp_logo_notext.jpg' %}", alt="CID Logo">
+            <div id="links">
+            <a href="{% url 'custom_logout' %}">Logout</a>
+        </div>
+    </header>
     <body>
-        <a href="{% url 'homepage' %}">
-            <img class='homepage_link' src="{% static 'img/CID_Temp_logo.png' %}"
-        </a>
-        <h1>
-            ROCC Configuration Bills of Material
-        </h1>
+        <hr>
+        <div class="table_block">
         <p>
             <table>
                 <tr>
-                    <th>ROCC BOM 1</th> 
-                    <th><a href="{% url 'download_file' 'Book1.xlsx' %}">Download</a></th>
+                    <th colspan=2>BOMS</th>
                 </tr>
                 <tr>
-                    <th>ROCC BOM 2</th>
-                    <th><a>PLACEHOLDER LINK</a></th>
+                    <td>ROCC Subassembly 1</td> 
+                    <td><a href='javascript:void(0)'>View</a><a href="{% url 'download_file' 'Book1.xlsx' %}">Download</a></td>
+                </tr>
+                <tr>
+                    <td>ROCC Subassembly 2</td>
+                    <td><a>PLACEHOLDER LINK</a></td>
                 </tr>
             </table>
         </p>
+        </div>
+        <hr>
     </body>
     <footer>
         <img src="{% static 'img/stslogo.jpg' %}", alt="SelectTech Logo">
         <p>Something Not Working? Report a Bug <a href='' onclick="openPopUp('/report_bug')">Here</a> </p>
-    <script>
+        <script>
             function openPopUp(url) {
                 window.open(url, 'popupWindow', 'width=${window.screen.width * 0.8},height=#{window.screen.height * 0.6},scollbars=yes,resizable=yes');
                 return false;

@@ -6,13 +6,26 @@
         <title>Rocc Drawings</title>
         {% load static %}
         <link rel="stylesheet", href="{% static 'css/drwgs.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+        <link rel="icon" href="{% static 'img/CID_favicon.ico' %}" type="image/x-icon">
     </head>
+    <header>
+        <h1>CID</h1>
+        <h2>ROCC Drawings</h2>
+        <div class="logo_block">
+            <img id="CID_LOGO" src="{% static 'img/CID_Temp_logo_notext.jpg' %}", alt="CID Logo">
+            <div id="links">
+            <a href="{% url 'custom_logout' %}">Logout</a>
+        </div>
+    </header>
     <body>
-        <a href="{% url 'homepage' %}">
-            <img class='homepage_link' src="{% static 'img/CID_Temp_logo.png' %}"
-        </a>
-        <h1>Rocc Drawings</h1>
+        <hr>
+        <div class="tables">
         <table>
+            <thead>
             <tr>
                 <th>Name</th>
                 <th>Cage Code</th>
@@ -20,21 +33,26 @@
                 <th>Rev</th>
                 <th>Link</th>
             </tr>
+            </thead>
+            <tbody>
             <tr>
-                <th>Jig Assy, ACU</th>
-                <th>7W030</th>
-                <th>1912-00001</th>
-                <th>-</th>
-                <th><a href="" onclick="return openPopUp('/media/1912-00001.pdf')">Preview</a> <a href="{% url 'download_file' '1912-00001.pdf' %}">Download</a></th>
+                <td>Jig Assy, ACU</td>
+                <td>7W030</td>
+                <td>1912-00001</td>
+                <td>-</td>
+                <td><a href="" onclick="return openPopUp('/media/1912-00001.pdf')">Preview</a> <a href="{% url 'download_file' '1912-00001.pdf' %}">Download</a></td>
             </tr>
             <tr>
-                <th>Label, Adhesive</th>
-                <th>7W030</th>
-                <th>1912-10022</th>
-                <th>-</th>
-                <th><a href="#" onclick="return openPopUp('/media/1912-10022.pdf')">Preview</a> <a href="{% url 'download_file' '1912-10022.pdf' %}">Download</a></th>
+                <td>Label, Adhesive</td>
+                <td>7W030</td>
+                <td>1912-10022</td>
+                <td>-</td>
+                <td><a href="#" onclick="return openPopUp('/media/1912-10022.pdf')">Preview</a> <a href="{% url 'download_file' '1912-10022.pdf' %}">Download</a></td>
             </tr>
+            </tbody>
         </table>
+        </div>
+        <hr>
     </body>
     <footer>
         <img src="{% static 'img/stslogo.jpg' %}", alt="SelectTech Logo">

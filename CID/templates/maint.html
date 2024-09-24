@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/maint.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+        <link rel="icon" href="{% static 'img/CID_favicon.ico' %}" type="image/x-icon">
+        <title>Maintenance</title>
+    </head>
+    <header>
+        <h1>CID</h1>
+        <h2>Open Maintenance Items for {{ platform }}</h2>
+        <div class="logo_block">
+            <img id="CID_LOGO" src="{% static 'img/CID_Temp_logo_notext.jpg' %}", alt="CID Logo">
+            <div id="links">
+            <a href="{% url 'custom_logout' %}">Logout</a>
+        </div>
+    </header>
+    <body>
+        <hr>
+        <div class="table_block">
+            <div class="download_section">
+            <a href="javascript:void(0)"><button id="close_items">Close Selected</button></a>
+            <a href="{% url 'maint_ticket' %}"><button id="maint_ticket">Submit a Ticket</button></a>
+            <a href="{% url 'download_csv' %}"><button><img id="download_img" src="{% static 'img/download.png' %}"></button></a>
+            </div>
+        <table id="maint_table">
+            <thead>
+                <tr>
+                    <th>Select All<br><input type="checkbox" onclick="toggleCheckboxes(this)"></th>
+                    <th>Number</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Date Opened</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in entries %}
+                <tr>
+                    <td><input type="checkbox" name="item-checkbox"></td>
+                    <td>{{ row.0 }}</td>
+                    <td>{{ row.1 }}</td>
+                    <td>{{ row.2 }}</td>
+                    <td>{{ row.3 }}</td>
+                </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="5">No Open Maintenance Items</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        <hr>
+    </body>
+    <footer>
+        <img src="{% static 'img/stslogo.jpg' %}", alt="SelectTech Logo">
+        <p>Something Not Working? Report a Bug <a href="/report_bug">Here</a></p>
+        <script>
+            function openPopUp(url) {
+                window.open(url, 'popupWindow', 'width=${window.screen.width * 0.8},height=#{window.screen.height * 0.6},scollbars=yes,resizable=yes');
+                return false;
+            }
+
+            function toggleCheckboxes(selectAllCheckBox) {
+                const checkboxes = document.getElementsByName('item-checkbox');
+                checkboxes.forEach((checkbox) => {
+                    checkbox.checked = selectAllCheckBox.checked;
+                });
+            }
+        </script>
+    </footer>
+</html>

@@ -1,5 +1,5 @@
 from django import forms
-from .models import BugReport, AuthenticationForm, AccountRequest
+from .models import BugReport, AuthenticationForm, AccountRequest, MaintTicket
 
 class BugReportForm(forms.ModelForm):
     class Meta:
@@ -58,3 +58,17 @@ class AccountRequestForm(forms.ModelForm):
 
 class UploadFilesForm(forms.Form):
     files = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': False}))
+
+class SubmitTicket(forms.ModelForm):
+    class Meta:
+        model = MaintTicket
+        fields = ['platform', 'description']
+        widgets = {
+            'platform': forms.TextInput(attrs={'placeholder': 'Platform'}),
+            'description': forms.Textarea(attrs={'placeholder': 'Please Provide a Description of the Issue', 'rows': 5})
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['platform'].label = ''
+        self.fields['description'].label = ''

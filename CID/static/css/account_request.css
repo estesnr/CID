@@ -1,38 +1,13 @@
 * {
+    margin: auto;
+    padding: 0;
     box-sizing: border-box;
     background-color: #002960;
     color: white;
-    font-family: "Orbitron", sans-serif;
 }
 
-h1 {
-    font-family: 'Bungee Tint', sans-serif;
-}
-
-h1, p {
-    text-align: center;
-}
-
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 300px;
-}
-
-.logo {
-    height: 50%;
-}
-
-a {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    color: red;
-}
-
-a:hover {
-    color: grey;
+body {
+    margin-top: 20%;
 }
 
 button {
@@ -60,11 +35,20 @@ textarea {
     text-align: center;
 }
 
+h1 {
+    text-align: center;
+    font-family: 'Bungee Tint', sans-serif;
+}
+
+.form_inputs {
+    align-items: center;
+}
+
 hr {
     border-color: red;
     margin: 10px auto;
     height: 5px;
-    width: 50%;
     background-color: red;
     box-shadow: inset 0 -1px rgb(135, 0, 0);
+    width: 40%;
 }

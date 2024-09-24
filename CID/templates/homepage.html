@@ -4,39 +4,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
-    <link rel="stylesheet", href="{% static 'css/style.css' %}">
+    <link rel="stylesheet", href="{% static 'css/homepage.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'img/CID_favicon.ico' %}" type="image/x-icon">
     <title>CID</title>    
 </head>
 <header>
     <div class="title_block">
-    <h1>CONFIGURATION ITEM DATABASE</h1>
+    <h1>CID</h1>
     </div>
     <div class="welcome_block">
-    <h2>Welcome {{ first_name }} {{last_name }}!</h2>
+    <h2>Welcome, {{ first_name }} {{ last_name }}!</h2>
     </div>
     <div class="logo_block">
-        <img id="CID_LOGO" src="{% static 'img/CID_Temp_logo.png' %}", alt="CID Logo">
+        <img id="CID_LOGO" src="{% static 'img/CID_Temp_logo_notext.jpg' %}", alt="CID Logo">
         <div id="links">
         <a href="{% url 'custom_logout' %}">Logout</a>
-        <a href="{% url 'search' %}">Search</a>
         </div>
     </div>
 </header>
 <body>
+    <h2>CID is SelectTech's one-stop shop to retrieve Configuration Data</h2>
     <hr>
-    <p>Welcome to SelectTech's one-stop shop to retrieve Configuration Data</p>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Search</button>
-    </form>
+    <p>Having Product Issues? <a href="{% url 'maint_ticket' %}"><button class="maint_ticket">Submit Ticket</button></a></p>
+    <div class="table_block">
     <div class="tables">
     <table>
         <thead>
-            <th colspan="2">ROCC</th>
+            <th colspan="2"><a href="/rocc_hp" style="color: white;">ROCC</a></th>
         </thead>
         <tbody>
             <tr>
@@ -111,26 +109,86 @@
         </tbody>
     </table>
     </div>
-    <!-- <table>
-        <tr>
-            <th>PROGRAM</th>
-            <th>BOMS</th>
-            <th>DRAWINGS</th>
-            <th>TDP</th>
-        </tr>
-        <tr>
-            <th>ROCC</th>
-            <th><a href="/BOMS/rocc_boms">View BOMs</a></th>
-            <th><a href="/drwgs/rocc_drwgs">View Drawings</a></th>
-            <th><a href="{% url 'download_zip' %}">DOWNLOAD TDP</a></th>
-        </tr>
-        <tr>
-            <th>ORION'S BELT</th>
-            <th><a>PLACEHOLDER</a></th>
-            <th><a>PLACEHOLDER</a></th>
-            <th><a>PLACEHOLDER</a></th>
-        </tr>
-    </table> -->
+    <div class="tables">
+    <table>
+        <thead>
+            <th colspan="2"><a href='/slicc_hp' style='color: white;'>SLICC</a></th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>BOMS</td>
+                <td><a>View BOMs</a></td>
+            </tr>
+            <tr>
+                <td>Drawings</td>
+                <td><a>View Drawings</a></td>
+            </tr>
+            <tr>
+                <td>TDP</td>
+                <td><a>DOWNLOAD TDP</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+                <th colspan="2"><a href='/slip_hp' style='color: white;'>SLIP</a></th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>BOMS</td>
+                <td><a>PLACEHOLDER</a></td>
+            </tr>
+            <tr>
+                <td>DRAWINGS</td>
+                <td><a>PLACEHOLDER</a></td>
+            </tr>
+            <tr>
+                <td>TDP</td>
+                <td><a>PLACEHOLDER</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+                <th colspan="2">SILVER BULLET</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>BOMS</td>
+                <td><a>PLACEHOLDER</a></td>
+            </tr>
+            <tr>
+                <td>DRAWINGS</td>
+                <td><a>PLACEHOLDER</a></td>
+            </tr>
+            <tr>
+                <td>TDP</td>
+                <td><a>PLACEHOLDER</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+                <th colspan="2">AFCENT</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>BOMS</td>
+                <td><a>PLACEHOLDER</a></td>
+            </tr>
+            <tr>
+                <td>DRAWINGS</td>
+                <td><a>PLACEHOLDER</a></td>
+            </tr>
+            <tr>
+                <td>TDP</td>
+                <td><a>PLACEHOLDER</a></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>
+    <hr>
 </body>
 <footer>
     <img src="{% static 'img/stslogo.jpg' %}", alt="SelectTech Logo">

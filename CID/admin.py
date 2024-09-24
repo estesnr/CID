@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BugReport, AccountRequest
+from .models import BugReport, AccountRequest, MaintTicket
 
 class MyAdminSite(admin.AdminSite):
     site_header = "CID Admin"
@@ -24,3 +24,18 @@ class AccountRequestAdmin(admin.ModelAdmin):
     def mark_as_processed(self, request, queryset):
         queryset.update(is_processed=True)
     mark_as_processed.short_description = "Mark selected Requests as processed"
+
+@admin.register(MaintTicket)
+class MaintTicketAdmin(admin.ModelAdmin):
+    list_display = ('platform', 'username', 'description', 'status', 'created_at')
+    list_filter = ('platform',)
+    search_fields = ('platform', 'status')
+    actions = ['mark_as_entered', 'mark_as_approved',]
+
+    def mark_as_entered(self, request, queryset):
+        queryset.update(status="entered")
+    mark_as_entered.short_description = "Mark selected Requests as Entered"
+
+    def mark_as_approved(self, request, queryset):
+        queryset.update(status="approved")
+    mark_as_approved.short_description = "Mark selected Requests as Approved"

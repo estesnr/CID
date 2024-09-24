@@ -16,7 +16,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
@@ -37,4 +37,11 @@ urlpatterns = [
     path('logout/', views.custom_logout, name='custom_logout'),
     path('search/', views.search_view, name='search'),
     path('request_account/', views.account_request_view, name='request_account'),
+    path('account_request_success/', views.account_request_success, name='account_request_success'),
+    path('rocc_hp/', views.rocc_hp, name='rocc_hp'),
+    path('slicc_hp/', views.slicc_hp, name='slicc_hp'),
+    path('slip_hp/', views.slip_hp, name='slip_hp'),
+    path('maint/', views.maintenance_records, name="maintenance"),
+    path('download/csv/', views.download_maint_csv, name="download_csv"),
+    path('maint_ticket/', views.submit_maint_ticket, name="maint_ticket"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

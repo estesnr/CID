@@ -1,7 +1,9 @@
+import csv
 import io
 import pandas as pd
 import os
 import zipfile
+from .api.access_api import AccessAPI
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404, FileResponse, HttpResponse
@@ -27,6 +29,19 @@ def homepage(request):
 @ login_required
 def rocc_boms(request):
     return render(request, 'BOMS/rocc_boms.html')
+
+
+@login_required
+def rocc_hp(request):
+    return render(request, 'platform_landings/rocc_hp.html')
+
+@login_required
+def slicc_hp(request):
+    return render(request, 'platform_landings/slicc_hp.html')
+
+@login_required
+def slip_hp(request):
+    return render(request, 'platform_landings/slip_hp.html')
 
 @ login_required
 def download(request):
@@ -62,6 +77,22 @@ def report_bug(request):
         form = forms.BugReportForm()
 
     return render(request, 'report_bug.html', {'form': form})
+
+@login_required
+def submit_maint_ticket(request):
+    if request.method == 'POST':
+        form = forms.SubmitTicket(request.POST)
+        if form.is_valid():
+            ticket = form.save(commit=False)
+            ticket.username = request.user
+            print(ticket.username)
+            ticket.save()
+            return redirect('bug_report_success')
+
+    else:
+        form = forms.SubmitTicket()
+
+    return render(request, 'maint_ticket.html', {'form': form})
 
 @ login_required
 def bug_report_success(request):
@@ -138,11 +169,28 @@ def account_request_view(request):
         if form.is_valid():
             form.save()
 
-            return redirect('bug_report_success')
+            return redirect('account_request_success')
     else:
         form = forms.AccountRequestForm()
 
     return render(request, 'account_request.html', {'form': form})
 
+def account_request_success(request):
+    return render(request, 'account_request_success.html')
+
 def landing_page(request):
     return render(request, 'landing.html')
+
+def maintenance_records(request):
+    platform = request.GET.get('platform')
+    access_api = AccessAPI()
+    current_entries = access_api.get_current_maint_items(platform)
+
+    return render(request, 'maint.html', {'platform': platform, 'entries': current_entries})
+
+def download_maint_csv(request):
+    # response = HttpResponse(content_type='text/csv')
+    # response['Content-Disposition'] = 'attachment; filename="maintenance_records.csv"'
+    current_url = request.path
+    table = pd.read_html(current_url)
+    print(table)
